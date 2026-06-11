@@ -1,0 +1,14 @@
+geopandas
+shapely
+pyogrio
+pyproj
+rasterio
+rioxarray
+xarray
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+jupyter
+python-dotenv
