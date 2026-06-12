@@ -1,255 +1,225 @@
 #!/usr/bin/env python3
 """
-Script 09: Download or Prepare Golf Course Data
+09_download_or_prepare_golf_data.py
 
-Downloads OSM golf courses in small chunks to avoid Overpass timeout failures.
+UREM Phase: Recognition Gap v0.1 prep
+
+Purpose:
+- Use local California OSM PBF extract.
+- Extract OSM features tagged leisure=golf_course.
+- Clip to UREM 25 km coastal study area.
+- Save coastal golf course layer for recognition modeling.
 
 Inputs:
-    data/processed/study_area_25km.gpkg
+- data/raw/golf/california-latest.osm.pbf
+- data/processed/study_area_25km.gpkg
 
-Outputs:
-    data/raw/golf/osm_golf_courses_raw.gpkg
-    data/processed/golf_courses_ca_coastal.gpkg
+Output:
+- data/processed/golf_courses_ca_coastal.gpkg
+
+CRS:
+- EPSG:3310
 """
 
 from pathlib import Path
+import logging
 import sys
-import time
 
 import geopandas as gpd
 import pandas as pd
-import osmnx as ox
-from shapely.geometry import box
+from pyrosm import OSM
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-RAW_GOLF_DIR = PROJECT_ROOT / "data" / "raw" / "golf"
-PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
+PBF_PATH = PROJECT_ROOT / "data" / "raw" / "golf" / "california-latest.osm.pbf"
+STUDY_AREA_PATH = PROJECT_ROOT / "data" / "processed" / "study_area_25km.gpkg"
+OUTPUT_PATH = PROJECT_ROOT / "data" / "processed" / "golf_courses_ca_coastal.gpkg"
 
-STUDY_AREA_PATH = PROCESSED_DIR / "study_area_25km.gpkg"
-
-RAW_OUTPUT = RAW_GOLF_DIR / "osm_golf_courses_raw.gpkg"
-PROCESSED_OUTPUT = PROCESSED_DIR / "golf_courses_ca_coastal.gpkg"
-
-RAW_GOLF_DIR.mkdir(parents=True, exist_ok=True)
-PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
-
-CRS_WGS84 = "EPSG:4326"
-CRS_CA_ALBERS = "EPSG:3310"
-
-TAGS = {"leisure": "golf_course"}
-
-# Smaller = safer but slower.
-CHUNK_DEGREES = 1.0
-SLEEP_SECONDS = 2
+TARGET_CRS = "EPSG:3310"
+OUTPUT_LAYER = "golf_courses_ca_coastal"
 
 
-def log(message: str) -> None:
-    print(f"[09_download_or_prepare_golf_data] {message}")
+def setup_logging() -> logging.Logger:
+    logger = logging.getLogger("09_download_or_prepare_golf_data")
+    logger.setLevel(logging.INFO)
+
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setFormatter(
+        logging.Formatter("[%(name)s] %(levelname)s: %(message)s")
+    )
+
+    if not logger.handlers:
+        logger.addHandler(handler)
+
+    return logger
 
 
-def load_study_area_wgs84() -> gpd.GeoDataFrame:
-    log(f"Reading study area: {STUDY_AREA_PATH}")
-    study = gpd.read_file(STUDY_AREA_PATH)
-
-    if study.empty:
-        raise ValueError("Study area is empty.")
-
-    if study.crs is None:
-        raise ValueError("Study area CRS is missing.")
-
-    study = study.to_crs(CRS_WGS84)
-    study["geometry"] = study.geometry.make_valid()
-    study = study[~study.geometry.is_empty].copy()
-
-    study["__dissolve"] = 1
-    study = study.dissolve(by="__dissolve").reset_index(drop=True)
-
-    return study[["geometry"]]
+def require_file(path: Path, label: str) -> None:
+    if not path.exists():
+        raise FileNotFoundError(f"Missing {label}: {path}")
 
 
-def make_query_chunks(study: gpd.GeoDataFrame) -> list:
-    study_geom = study.geometry.iloc[0]
-    minx, miny, maxx, maxy = study.total_bounds
+def clean_geometries(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    gdf = gdf.copy()
+    gdf = gdf[gdf.geometry.notna()]
+    gdf = gdf[~gdf.geometry.is_empty]
 
-    chunks = []
+    # Fix invalid polygons where possible.
+    gdf["geometry"] = gdf.geometry.make_valid()
+    gdf = gdf[gdf.geometry.notna()]
+    gdf = gdf[~gdf.geometry.is_empty]
 
-    x = minx
-    while x < maxx:
-        y = miny
-        while y < maxy:
-            chunk = box(
-                x,
-                y,
-                min(x + CHUNK_DEGREES, maxx),
-                min(y + CHUNK_DEGREES, maxy),
-            )
-
-            if chunk.intersects(study_geom):
-                chunks.append(chunk.intersection(study_geom))
-
-            y += CHUNK_DEGREES
-        x += CHUNK_DEGREES
-
-    return chunks
+    return gdf
 
 
-def download_chunk(chunk_geom, chunk_number: int, total_chunks: int):
-    log(f"Downloading chunk {chunk_number}/{total_chunks}")
+def main() -> None:
+    logger = setup_logging()
 
-    for attempt in range(1, 4):
-        try:
-            gdf = ox.features.features_from_polygon(
-                chunk_geom,
-                tags=TAGS,
-            )
+    logger.info("Starting Script 09: Prepare local golf course data")
 
-            if gdf.empty:
-                log(f"Chunk {chunk_number}: no golf courses found.")
-                return None
+    require_file(PBF_PATH, "local California OSM PBF")
+    require_file(STUDY_AREA_PATH, "study area GeoPackage")
 
-            gdf = gdf.reset_index()
-            log(f"Chunk {chunk_number}: found {len(gdf):,} raw features.")
-            return gdf
+    logger.info(f"Using local PBF: {PBF_PATH}")
+    logger.info(f"Reading study area: {STUDY_AREA_PATH}")
 
-        except Exception as exc:
-            log(f"Chunk {chunk_number} attempt {attempt} failed: {exc}")
-            time.sleep(SLEEP_SECONDS * attempt)
+    study_area = gpd.read_file(STUDY_AREA_PATH)
 
-    log(f"Chunk {chunk_number}: failed after 3 attempts. Skipping.")
-    return None
+    if study_area.empty:
+        raise ValueError("Study area file loaded but contains no features.")
 
+    study_area = study_area.to_crs(TARGET_CRS)
+    study_area = clean_geometries(study_area)
 
-def download_osm_golf_courses(study: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
-    ox.settings.use_cache = True
-    ox.settings.log_console = False
-    ox.settings.requests_timeout = 600
+    study_union = study_area.geometry.union_all()
 
-    chunks = make_query_chunks(study)
-    log(f"Created {len(chunks)} download chunks.")
+    logger.info("Extracting OSM features where leisure=golf_course")
 
-    all_results = []
+    osm = OSM(str(PBF_PATH))
 
-    for i, chunk in enumerate(chunks, start=1):
-        result = download_chunk(chunk, i, len(chunks))
+    golf = osm.get_data_by_custom_criteria(
+        custom_filter={"leisure": ["golf_course"]},
+        filter_type="keep",
+        keep_nodes=False,
+        keep_ways=True,
+        keep_relations=True,
+        extra_tags=[
+            "name",
+            "leisure",
+            "sport",
+            "operator",
+            "website",
+            "wikidata",
+            "wikipedia",
+            "tourism",
+            "access",
+        ],
+    )
 
-        if result is not None and not result.empty:
-            all_results.append(result)
+    if golf is None or golf.empty:
+        raise ValueError("No leisure=golf_course features found in local PBF.")
 
-        time.sleep(SLEEP_SECONDS)
+    logger.info(f"Raw golf features extracted: {len(golf):,}")
 
-    if not all_results:
-        raise ValueError("No OSM golf course features were downloaded.")
-
-    golf = pd.concat(all_results, ignore_index=True)
-
-    return gpd.GeoDataFrame(golf, geometry="geometry", crs=CRS_WGS84)
-
-
-def clean_golf_data(golf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
-    log("Cleaning golf data...")
+    golf = clean_geometries(golf)
 
     if golf.crs is None:
-        golf = golf.set_crs(CRS_WGS84)
+        logger.info("Input golf CRS missing; assuming EPSG:4326 from OSM.")
+        golf = golf.set_crs("EPSG:4326")
 
-    golf = golf.to_crs(CRS_CA_ALBERS)
-    golf["geometry"] = golf.geometry.make_valid()
-    golf = golf[~golf.geometry.is_empty].copy()
+    golf = golf.to_crs(TARGET_CRS)
 
-    golf = golf[golf.geometry.geom_type.isin(["Polygon", "MultiPolygon"])].copy()
+    # Keep polygonal/area-like features only.
+    golf = golf[
+        golf.geometry.geom_type.isin(
+            ["Polygon", "MultiPolygon", "GeometryCollection"]
+        )
+    ].copy()
 
-    if golf.empty:
-        raise ValueError("No polygon golf course features remained after cleaning.")
+    golf = clean_geometries(golf)
 
-    # Remove duplicates from overlapping chunks.
-    if "osmid" in golf.columns:
-        golf = golf.drop_duplicates(subset=["osmid"])
-    elif "id" in golf.columns:
-        golf = golf.drop_duplicates(subset=["id"])
+    logger.info(f"Golf polygon/area features retained: {len(golf):,}")
+
+    logger.info("Clipping golf courses to 25 km coastal study area")
+
+    golf_clipped = gpd.clip(golf, study_area)
+    golf_clipped = clean_geometries(golf_clipped)
+    golf_clipped = golf_clipped.to_crs(TARGET_CRS)
+
+    if golf_clipped.empty:
+        raise ValueError("Golf courses extracted, but none intersect the study area.")
+
+    # Area QA.
+    golf_clipped["area_m2"] = golf_clipped.geometry.area
+    golf_clipped["area_km2"] = golf_clipped["area_m2"] / 1_000_000
+
+    # Stable feature ID.
+    if "id" in golf_clipped.columns:
+        golf_clipped["osm_feature_id"] = golf_clipped["id"].astype(str)
+    elif "osm_id" in golf_clipped.columns:
+        golf_clipped["osm_feature_id"] = golf_clipped["osm_id"].astype(str)
     else:
-        golf = golf.drop_duplicates(subset=["geometry"])
+        golf_clipped["osm_feature_id"] = [
+            f"golf_{i + 1}" for i in range(len(golf_clipped))
+        ]
 
-    golf = golf.reset_index(drop=True)
-    golf["golf_id"] = [f"GOLF{i:05d}" for i in range(1, len(golf) + 1)]
+    # Normalize name.
+    if "name" not in golf_clipped.columns:
+        golf_clipped["name"] = pd.NA
 
-    for field in ["name", "leisure", "sport", "operator", "website"]:
-        if field not in golf.columns:
-            golf[field] = None
-
-    golf["area_m2"] = golf.geometry.area
-    golf = golf[golf["area_m2"] > 10_000].copy()
-
-    keep_fields = [
-        "golf_id",
+    keep_cols = [
+        "osm_feature_id",
         "name",
         "leisure",
         "sport",
         "operator",
         "website",
+        "wikidata",
+        "wikipedia",
+        "tourism",
+        "access",
         "area_m2",
+        "area_km2",
         "geometry",
     ]
 
-    return golf[keep_fields]
+    for col in keep_cols:
+        if col not in golf_clipped.columns:
+            golf_clipped[col] = pd.NA
 
+    golf_clipped = golf_clipped[keep_cols].copy()
 
-def run_qa(golf: gpd.GeoDataFrame) -> None:
-    log("Running QA checks...")
+    # QA checks.
+    total_area_km2 = golf_clipped["area_km2"].sum()
+    named_count = golf_clipped["name"].notna().sum()
+    unnamed_count = golf_clipped["name"].isna().sum()
 
-    if golf.empty:
-        raise AssertionError("QA failed: golf dataset is empty.")
+    logger.info("QA summary")
+    logger.info(f"Coastal golf features: {len(golf_clipped):,}")
+    logger.info(f"Named features: {named_count:,}")
+    logger.info(f"Unnamed features: {unnamed_count:,}")
+    logger.info(f"Total clipped golf area: {total_area_km2:,.2f} km²")
+    logger.info(f"CRS: {golf_clipped.crs}")
 
-    if golf.crs.to_string() != CRS_CA_ALBERS:
-        raise AssertionError(f"QA failed: expected {CRS_CA_ALBERS}, got {golf.crs}")
+    if len(golf_clipped) < 10:
+        logger.warning("Very few golf courses found. Review extraction/clipping.")
+    if total_area_km2 <= 0:
+        raise ValueError("Golf area is zero after clipping.")
 
-    if golf["golf_id"].duplicated().any():
-        raise AssertionError("QA failed: duplicate golf_id values.")
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-    invalid_count = (~golf.geometry.is_valid).sum()
-    if invalid_count > 0:
-        raise AssertionError(f"QA failed: {invalid_count} invalid geometries.")
+    if OUTPUT_PATH.exists():
+        OUTPUT_PATH.unlink()
 
-    log(f"Golf course polygons: {len(golf):,}")
-    log(f"Total golf polygon area km²: {golf.geometry.area.sum() / 1_000_000:,.2f}")
-    log("QA complete.")
+    golf_clipped.to_file(
+        OUTPUT_PATH,
+        layer=OUTPUT_LAYER,
+        driver="GPKG",
+    )
 
-
-def main() -> None:
-    log("Starting Script 09: Download or prepare golf data")
-
-    try:
-        study = load_study_area_wgs84()
-
-        if RAW_OUTPUT.exists():
-            log(f"Raw OSM golf file already exists. Reading: {RAW_OUTPUT}")
-            raw_golf = gpd.read_file(RAW_OUTPUT)
-        else:
-            raw_golf = download_osm_golf_courses(study)
-
-            log(f"Writing raw OSM golf output: {RAW_OUTPUT}")
-            raw_golf.to_file(
-                RAW_OUTPUT,
-                layer="osm_golf_courses_raw",
-                driver="GPKG",
-            )
-
-        golf = clean_golf_data(raw_golf)
-        run_qa(golf)
-
-        log(f"Writing processed golf output: {PROCESSED_OUTPUT}")
-        golf.to_file(
-            PROCESSED_OUTPUT,
-            layer="golf_courses_ca_coastal",
-            driver="GPKG",
-        )
-
-        log("Complete.")
-        log(f"Created: {PROCESSED_OUTPUT}")
-
-    except Exception as exc:
-        log(f"ERROR: {exc}")
-        sys.exit(1)
+    logger.info(f"Saved output: {OUTPUT_PATH}")
+    logger.info("Script 09 completed successfully.")
 
 
 if __name__ == "__main__":
