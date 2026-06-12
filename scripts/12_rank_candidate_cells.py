@@ -41,7 +41,7 @@ def main():
 
     required_cols = [
         "recognition_gap_v01",
-        "physical_potential_v0",
+        "physical_potential_v01",
         "observed_recognition_v0",
         "coastal_proximity_score",
         "golf_recognition_score",
@@ -55,13 +55,13 @@ def main():
 
     candidates = grid.copy()
 
-    # For this first pass, exclude cells already containing golf.
+    # First pass: exclude cells already containing golf.
     candidates = candidates[candidates["has_golf"] == False].copy()
 
     candidates = candidates.sort_values(
         by=[
             "recognition_gap_v01",
-            "physical_potential_v0",
+            "physical_potential_v01",
             "coastal_proximity_score",
         ],
         ascending=[False, False, False],
@@ -80,6 +80,7 @@ def main():
     logger.info(f"Candidate cells after excluding golf: {len(candidates):,}")
     logger.info(f"Top candidates saved: {len(top_candidates):,}")
     logger.info(f"Best recognition gap: {top_candidates['recognition_gap_v01'].max():.4f}")
+    logger.info(f"Best physical potential v01: {top_candidates['physical_potential_v01'].max():.4f}")
 
     OUTPUT_GPKG_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_CSV_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -98,9 +99,12 @@ def main():
         "centroid_lat",
         "centroid_lon",
         "recognition_gap_v01",
-        "physical_potential_v0",
+        "physical_potential_v01",
         "observed_recognition_v0",
         "coastal_proximity_score",
+        "relief_score",
+        "elevation_score",
+        "slope_score",
         "golf_recognition_score",
         "golf_area_km2",
         "has_golf",
