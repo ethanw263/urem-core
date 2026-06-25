@@ -1,0 +1,26 @@
+# RDE Validation Dataset Registry v01
+
+This registry defines candidate independent validation datasets for Phase II of the RDE / UREM framework.
+
+The registry does not download or validate data. It standardizes metadata so future validation scripts can register datasets consistently.
+
+## Dataset Registry
+
+| dataset_key            | dataset_name                 | category                | preferred_source                                        | geometry_type    | independent_of_model   | recommended_metrics         |   default_weight | priority   | oregon_status   | california_status   | notes                                                                                               |
+|:-----------------------|:-----------------------------|:------------------------|:--------------------------------------------------------|:-----------------|:-----------------------|:----------------------------|-----------------:|:-----------|:----------------|:--------------------|:----------------------------------------------------------------------------------------------------|
+| beaches                | Beaches                      | coastal_landform        | OpenStreetMap / state coastal inventories               | point_or_polygon | True                   | distance;density;intersects |             0.15 | high       | pending         | pending             | Tests whether hotspots correspond to accessible coastal recreation landforms.                       |
+| estuaries              | Estuaries                    | coastal_hydrology       | NOAA / state estuary datasets                           | polygon          | True                   | intersects;overlap;distance |             0.2  | high       | pending         | pending             | Important independent test based on visual validation results.                                      |
+| named_natural_features | Named Natural Features       | geographic_recognition  | USGS GNIS                                               | point            | True                   | distance;density            |             0.15 | high       | pending         | pending             | Independent named-feature validation for geographic salience.                                       |
+| protected_areas        | Protected Areas              | conservation            | USGS PAD-US                                             | polygon          | True                   | intersects;overlap;distance |             0.25 | high       | pending         | pending             | Primary independent conservation validation layer.                                                  |
+| river_mouths           | River Mouths                 | hydrologic_transition   | NHD / derived hydrography                               | point            | True                   | distance;density            |             0.15 | high       | pending         | pending             | Tests whether hotspots align with hydrologic/coastal transition environments.                       |
+| state_parks            | State Parks                  | recreation_conservation | Oregon Parks and Recreation Department / CA State Parks | polygon          | True                   | intersects;overlap;distance |             0.2  | high       | pending         | pending             | Tests whether hotspots align with recognized public recreation landscapes.                          |
+| trails                 | Trails                       | access_recreation       | OpenStreetMap / state trail datasets                    | line             | False                  | distance;density            |             0.05 | low        | pending         | pending             | Useful context but not fully independent because recognition model may use OSM recreation features. |
+| campgrounds            | Campgrounds                  | access_recreation       | OpenStreetMap / Recreation.gov / state datasets         | point_or_polygon | True                   | distance;density;intersects |             0.1  | medium     | pending         | pending             | Tests whether hotspots correspond to recreational use nodes.                                        |
+| national_parks         | National Parks and NPS Units | recreation_conservation | National Park Service                                   | polygon          | True                   | intersects;overlap;distance |             0.2  | medium     | pending         | pending             | Useful but may be sparse in Oregon coastal study area.                                              |
+| viewpoints             | Viewpoints                   | recognition_access      | OpenStreetMap                                           | point            | True                   | distance;density            |             0.1  | medium     | pending         | pending             | Tests visible recognition infrastructure, but may partially overlap recognition data logic.         |
+
+## Notes
+
+- High-priority datasets should be implemented first.
+- Datasets marked `independent_of_model = False` should be used cautiously.
+- The validation engine should remain study-area agnostic.

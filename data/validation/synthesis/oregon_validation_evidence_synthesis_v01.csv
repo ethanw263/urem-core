@@ -1,0 +1,11 @@
+dataset_key,dataset_name,metric,observed_value,null_mean,null_std,z_score,monte_carlo_p_value,direction,effect_ratio_observed_to_null,metric_evidence_class,dataset_overall_support_class
+padus,Protected Areas,mean_overlap_pct,0.7247891230965992,0.5144434127036184,0.0699996737360446,3.004952725724895,0.0,higher_is_better,1.4088801706829617,strong_statistical_support,strong_overall_support
+padus,Protected Areas,median_overlap_pct,0.983913768276303,0.5272798588908627,0.1812468103928876,2.519403836103917,0.0,higher_is_better,1.866018114831796,strong_statistical_support,strong_overall_support
+padus,Protected Areas,mean_nearest_distance_m,350.20943075965636,628.2275645835639,186.8524101317348,-1.487902316207209,0.05,lower_is_better,0.557456327138083,moderate_statistical_support,strong_overall_support
+padus,Protected Areas,pct_within_1km,0.9117647058823528,0.779,0.0717653774248093,1.8499826886781765,0.04,higher_is_better,1.1704296609529563,moderate_statistical_support,strong_overall_support
+padus,Protected Areas,pct_within_5km,1.0,0.9882352941176472,0.0185269276386743,0.6350057662984804,0.672,higher_is_better,1.011904761904762,not_statistically_supported,strong_overall_support
+estuaries,Estuaries,mean_overlap_pct,0.2126638806965246,0.0430289086514084,0.0254417041906566,6.667594700964005,0.0,higher_is_better,4.942348931491286,strong_statistical_support,strong_overall_support
+estuaries,Estuaries,median_overlap_pct,0.0,0.0,0.0,,1.0,higher_is_better,,not_statistically_supported,strong_overall_support
+estuaries,Estuaries,mean_nearest_distance_m,2934.263075584766,6118.474465649516,882.2482740756484,-3.609201041963976,0.0,lower_is_better,0.4795742945497893,strong_statistical_support,strong_overall_support
+estuaries,Estuaries,pct_within_1km,0.2941176470588235,0.1633529411764706,0.06242013710246,2.0949121862341973,0.044,higher_is_better,1.8005041411595246,moderate_statistical_support,strong_overall_support
+estuaries,Estuaries,pct_within_5km,0.7941176470588235,0.5269411764705882,0.0800722399565066,3.3366928505229696,0.0,higher_is_better,1.5070328198258538,strong_statistical_support,strong_overall_support

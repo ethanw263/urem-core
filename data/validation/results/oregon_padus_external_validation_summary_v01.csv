@@ -1,0 +1,2 @@
+validation_dataset,n_hotspots,pct_intersects_any,mean_overlap_pct,pct_any_overlap,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km
+Protected Areas,34,0.8823529411764706,0.7759793853920083,0.8823529411764706,350.20943075965636,0.0,0.9117647058823529,1.0

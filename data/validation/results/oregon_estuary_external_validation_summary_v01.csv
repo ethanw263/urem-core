@@ -1,0 +1,2 @@
+validation_dataset,n_hotspots,pct_intersects_any,mean_overlap_pct,pct_any_overlap,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km
+Estuaries,34,0.29411764705882354,0.21266388069652448,0.29411764705882354,2934.263075584766,3372.5977580061754,0.29411764705882354,0.7941176470588235

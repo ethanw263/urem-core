@@ -1,0 +1,2 @@
+dataset_key,dataset_name,source,region,raw_path,selected_layer,study_area,output_gpkg,feature_count,total_area_km2,independent_of_model,recommended_metrics,notes
+estuaries,Estuaries,PMEP West Coast USA Estuary Extent V1,Oregon Coast,data/validation/estuaries/PMEP_West_Coast_USA_Estuary_Extent_V1.gdb,PMEP_West_Coast_USA_Estuary_Extent_V1,data/processed/oregon_coast_study_area_v01.gpkg,data/validation/standardized/estuaries_oregon_pmep_v01.gpkg,58,884.0944100989174,True,intersects;overlap;distance,Standardized PMEP estuary layer for Oregon external validation.
