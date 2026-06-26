@@ -1,0 +1,2 @@
+dataset_key,dataset_name,source,region,raw_path,selected_layer,study_area,output_gpkg,feature_count,independent_of_model,recommended_metrics,notes
+named_natural_features,Named Natural Features,USGS GNIS FullModel / Gazetteer OR,Oregon Coast,data/raw/validation/gnis/Gazetteer_OR_GPKG/Gazetteer_OR_GPKG.gpkg,Gaz_Features,data/processed/oregon_coast_study_area_v01.gpkg,data/validation/standardized/gnis_named_natural_features_oregon_v01.gpkg,3511,True,distance;density,Standardized GNIS named natural features for Oregon external validation.

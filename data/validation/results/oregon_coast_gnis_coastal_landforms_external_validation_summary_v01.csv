@@ -1,0 +1,2 @@
+validation_dataset,n_hotspots,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km,mean_density_5km
+GNIS Coastal Landforms,34,3226.4840675925916,2713.082211262351,0.11764705882352941,0.7941176470588235,4.117647058823529

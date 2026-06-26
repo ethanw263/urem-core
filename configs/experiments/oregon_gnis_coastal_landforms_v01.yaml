@@ -1,0 +1,32 @@
+experiment_key: oregon_gnis_coastal_landforms_config_test
+experiment_name: Oregon GNIS Coastal Landforms Config Test
+study_name: Oregon Coast
+
+hotspots_path: data/processed/oregon_transition_hotspot_validation_summary_v01.gpkg
+study_area_path: data/processed/oregon_coast_study_area_v01.gpkg
+dataset_path: data/validation/standardized/gnis_subgroups/gnis_coastal_landform_oregon_v01.gpkg
+
+dataset_name: GNIS Coastal Landforms
+dataset_source: USGS GNIS FullModel / Gazetteer OR
+dataset_category: geographic_recognition
+geometry_type: point
+metrics:
+  - distance
+  - density
+
+hotspot_id_column: transition_hotspot_id_v01
+hotspot_score_column: mean_transition_score_v01
+
+independent_of_model: true
+dataset_weight: 0.15
+
+run_external_validation: true
+run_null_model: true
+
+n_simulations: 500
+random_seed: 42
+progress_interval: 50
+
+notes: >
+  Config-driven test experiment for GNIS coastal landforms.
+  This proves experiments can be defined outside Python.

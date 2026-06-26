@@ -1,0 +1,2 @@
+n_hotspots,pct_intersects_any,mean_overlap_pct,median_overlap_pct,pct_any_overlap,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km
+34,0.058823529411764705,0.0,0.0,0.0,7146.942503796098,7028.037939065533,0.058823529411764705,0.3235294117647059

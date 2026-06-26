@@ -1,0 +1,2 @@
+validation_dataset,n_hotspots,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km,mean_density_5km
+GNIS Hydrology,34,3252.184515874455,3162.5459059809255,0.17647058823529413,0.7058823529411765,5.705882352941177

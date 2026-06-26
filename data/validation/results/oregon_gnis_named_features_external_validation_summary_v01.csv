@@ -1,0 +1,2 @@
+validation_dataset,n_hotspots,mean_nearest_distance_m,median_nearest_distance_m,pct_within_1km,pct_within_5km,mean_density_5km
+GNIS Named Natural Features,34,2520.714519133719,2102.8250425044957,0.2647058823529412,0.9117647058823529,11.029411764705882
