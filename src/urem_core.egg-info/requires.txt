@@ -1,0 +1,15 @@
+pandas
+numpy
+geopandas
+shapely
+pyogrio
+fiona
+pyproj
+rtree
+scipy
+matplotlib
+pyyaml
+tabulate
+
+[dev]
+pytest

@@ -1,0 +1,2 @@
+Layer 18 Decision — RDE Lives on Structured Measurable Recognition Systems:
+RDE should not be grounded solely in Euclidean geographic space. Its foundational habitat is a structured measurable recognition system consisting of a measurable domain, recognition state space, optional relational/network structure, and possible update or transfer operators. Geographic space is an important implementation case, but not the full mathematical universe of the theory.

@@ -1,0 +1,32 @@
+[project]
+name = "urem-core"
+version = "0.1.0"
+description = "Recognition Disequilibrium / Under-Recognized Exceptionality Modeling research framework"
+requires-python = ">=3.11"
+authors = [
+  { name = "Ethan Wilson" }
+]
+
+dependencies = [
+  "pandas",
+  "numpy",
+  "geopandas",
+  "shapely",
+  "pyogrio",
+  "fiona",
+  "pyproj",
+  "rtree",
+  "scipy",
+  "matplotlib",
+  "pyyaml",
+  "tabulate"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

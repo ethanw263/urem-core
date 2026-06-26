@@ -1,0 +1,2 @@
+Layer 15 Decision — Advanced Mathematics Must Be Object-Driven:
+RDE will incorporate measure theory, probability, random fields, functional/energy formulations, dynamical systems, graph theory, information theory, and PDE-style flow only where these structures are required by the mathematical objects already defined. The framework will not use advanced notation for appearance. Complexity must be earned through explanatory necessity.

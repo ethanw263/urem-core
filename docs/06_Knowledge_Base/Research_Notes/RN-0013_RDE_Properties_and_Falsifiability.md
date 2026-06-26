@@ -1,0 +1,2 @@
+Layer 13 Decision — RDE Must Be Falsifiable Through Distinctness, Persistence, Transferability, Mechanistic Interpretation, and Null-Model Separation:
+RDE is scientifically meaningful only if it preserves a nontrivial distinction among recognition potential, allocation, observed recognition, and disequilibrium; identifies persistent rather than incidental mismatch; transfers across recognition systems; supports mechanism-level interpretation; and explains structure not captured by simpler null models.

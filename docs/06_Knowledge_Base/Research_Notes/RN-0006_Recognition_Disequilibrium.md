@@ -1,0 +1,2 @@
+Layer 6 Decision — Disequilibrium as Unrealized Recognition Capacity:
+Recognition Disequilibrium should not be defined primarily as a regression residual. Empirical RDE may currently be estimated using expected-minus-observed recognition, but the theoretical object is broader: the failure of a recognition system to realize latent recognition-generating capacity. The current residual form is therefore an operational proxy, not the final mathematical definition.

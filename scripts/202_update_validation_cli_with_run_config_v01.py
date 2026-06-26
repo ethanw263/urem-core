@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
+
+SCRIPT_NAME = "202_update_validation_cli_with_run_config_v01"
+CLI_PATH = Path("scripts/200_validation_cli_v01.py")
+
+CONTENT = r'''#!/usr/bin/env python3
+
+from pathlib import Path
 import sys
 import argparse
 
@@ -167,6 +174,24 @@ def main():
 
     args = parser.parse_args()
     args.func(args)
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+
+def main():
+    print(f"[{SCRIPT_NAME}] Starting")
+
+    CLI_PATH.write_text(CONTENT, encoding="utf-8")
+
+    print(f"[{SCRIPT_NAME}] Updated: {CLI_PATH}")
+    print()
+    print("Test with:")
+    print("  python scripts/200_validation_cli_v01.py run configs/experiments/oregon_gnis_coastal_landforms_v01.yaml")
+    print()
+    print(f"[{SCRIPT_NAME}] Done")
 
 
 if __name__ == "__main__":

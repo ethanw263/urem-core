@@ -1,0 +1,2 @@
+Layer 9 Decision — Sources and Sinks as Emergent Allocation-Imbalance Structures:
+Recognition sources and sinks should not be treated as simple labels assigned after scoring. They are provisionally defined as persistent spatial structures emerging from mismatches among recognition potential, allocation, and realized recognition. A source is a structure with unrealized recognition-generating capacity; a sink is a structure that accumulates recognition beyond what local potential alone would explain. Flow-based and network-based definitions remain future extensions.

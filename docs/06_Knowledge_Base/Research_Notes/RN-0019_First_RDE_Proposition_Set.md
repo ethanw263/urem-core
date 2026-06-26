@@ -1,0 +1,2 @@
+Layer 19 Decision — First RDE Proposition Set:
+The initial proposition set establishes that RDE requires non-collapse among recognition potential, expected recognition, and observed recognition; requires a reference equilibrium or allocation state; supports distinct failure modes through allocation mediation; treats sources and sinks as emergent structures; views static RDE as a special case of dynamic RDE; and treats geographic RDE as a special case of a broader theory on structured measurable recognition systems.

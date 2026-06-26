@@ -1,0 +1,68 @@
+site_name: RDE / UREM Framework
+site_description: Recognition Disequilibrium Framework Documentation
+site_author: Ethan Wilson
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.tabbed
+  - pymdownx.emoji
+  - pymdownx.arithmatex
+
+nav:
+  - Home: index.md
+
+  - Project Overview:
+      - Overview: 00_Project_Overview.md
+
+  - Theory:
+      - UREM: 01_Theory/UREM.md
+      - RDE: 01_Theory/RDE.md
+      - Recognition Disequilibrium: 01_Theory/Recognition_Disequilibrium.md
+      - Mathematical Framework: 01_Theory/Mathematical_Framework.md
+
+  - Framework:
+      - Architecture: 02_Framework/Architecture.md
+      - Validation Engine: 02_Framework/Validation_Engine.md
+      - Experiment Framework: 02_Framework/Experiment_Framework.md
+      - Registry: 02_Framework/Registry.md
+      - Discovery: 02_Framework/Discovery.md
+      - Evidence Synthesis: 02_Framework/Evidence_Synthesis.md
+      - Provenance: 02_Framework/Provenance.md
+
+  - Developer Guide:
+      - Installation: 03_Developer_Guide/Installation.md
+      - Repository Structure: 03_Developer_Guide/Repository_Structure.md
+      - Configuration System: 03_Developer_Guide/Configuration_System.md
+      - Running Tests: 03_Developer_Guide/Running_Tests.md
+      - Creating Experiments: 03_Developer_Guide/Creating_New_Experiments.md
+      - Adding Datasets: 03_Developer_Guide/Adding_New_Datasets.md
+
+  - Publications:
+      - Validation Methodology: 04_Publication/Validation_Methodology.md
+      - Figures: 04_Publication/Figures.md
+      - Tables: 04_Publication/Tables.md
+      - Reproducibility: 04_Publication/Reproducibility.md
+
+  - Roadmap:
+      - Current Status: 05_Roadmap/Current_Status.md
+      - Future Work: 05_Roadmap/Future_Work.md
+      - Release Plan: 05_Roadmap/Release_Plan.md

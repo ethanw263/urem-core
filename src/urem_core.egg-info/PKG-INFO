@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: urem-core
+Version: 0.1.0
+Summary: Recognition Disequilibrium / Under-Recognized Exceptionality Modeling research framework
+Author: Ethan Wilson
+Requires-Python: >=3.11
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: geopandas
+Requires-Dist: shapely
+Requires-Dist: pyogrio
+Requires-Dist: fiona
+Requires-Dist: pyproj
+Requires-Dist: rtree
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pyyaml
+Requires-Dist: tabulate
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"

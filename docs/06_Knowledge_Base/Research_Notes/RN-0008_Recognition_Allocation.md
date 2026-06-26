@@ -1,0 +1,2 @@
+Layer 8 Decision — Recognition Allocation as an Intermediate System State:
+Recognition allocation is introduced as an intermediate theoretical object between latent recognition potential and observed recognition. It represents the system-conditioned tendency for recognition to be directed toward a location or spatial object. Allocation is not assumed to be proportional to potential, nor is recognition assumed to be strictly conserved. Recognition may be competitive, expandable, path-dependent, or constrained depending on the recognition system.

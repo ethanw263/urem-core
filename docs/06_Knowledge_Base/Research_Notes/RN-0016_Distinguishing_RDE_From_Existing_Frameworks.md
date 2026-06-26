@@ -1,0 +1,2 @@
+Layer 16 Decision — RDE as a Theory of Recognition Realization Failure:
+RDE is not positioned as a replacement for suitability analysis, anomaly detection, residual modeling, hotspot analysis, spatial interaction modeling, or niche modeling. Instead, it is provisionally defined as a theory of recognition realization failure: the study of how latent recognition-generating capacity, allocation mechanisms, transmission structures, and observed recognition become misaligned within a recognition system.

@@ -1,0 +1,2 @@
+Layer 14 Decision — Minimal RDE Theory Skeleton:
+RDE is provisionally formalized as a theory of system-conditioned recognition allocation and realization. A recognition system R induces latent recognition potential Φ, allocation state A, observed recognition R, equilibrium set E, and disequilibrium D. Empirical residuals are operational proxies, while the theoretical object is persistent deviation from stable recognition allocation-realization states.

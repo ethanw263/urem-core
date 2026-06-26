@@ -1,0 +1,2 @@
+Layer 17 Decision — First Formal RDE Definition Set:
+RDE now has a provisional textbook-style definition set covering recognition system, observed recognition, recognition potential, allocation, expected recognition, equilibrium, disequilibrium, sources, sinks, and flow. These definitions formalize RDE as a theory of system-conditioned recognition realization and misallocation, while preserving the distinction between theoretical objects and empirical proxies.

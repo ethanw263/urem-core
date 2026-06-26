@@ -1,0 +1,5 @@
+
+Decision RN-0001-A: Treat Recognition as a stochastic spatial field, with a possible measure-theoretic extension. Treat P, O, and T as interpretable components of a broader contextual state F(x), not as final primitive objects. Treat Expected Recognition as derived, not primitive. Introduce latent Recognition Potential Φ(x) as a candidate deeper object, but do not finalize its equation yet.
+
+Layer 2 Decision — Object Hierarchy:
+RDE will treat the recognition system as a structured spatial system (Ω,μ,F,R), where F(x) represents the full recognition-relevant state and R(x) represents observed recognition. Physical potential P(x), opportunity O(x), and transmission T(x) are interpretable components or projections of F(x), not final primitives. Expected recognition m(x), disequilibrium D(x), sources, sinks, and equilibrium states are derived objects. Recognition Potential Φ(x) remains a candidate latent primitive requiring deeper investigation.

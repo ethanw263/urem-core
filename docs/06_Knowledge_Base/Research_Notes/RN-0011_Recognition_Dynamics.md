@@ -1,0 +1,2 @@
+Layer 11 Decision — Recognition Dynamics as State Evolution:
+Recognition should be allowed to evolve through a system-specific update process. Static RDE describes recognition disequilibrium at a given time, while dynamic RDE studies how recognition potential, allocation, observed recognition, and disequilibrium change across time. Persistent disequilibrium is provisionally defined as unrealized recognition capacity that remains after repeated opportunities for recognition adjustment.

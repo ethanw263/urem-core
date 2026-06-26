@@ -1,0 +1,2 @@
+Layer 21 Decision — Recognition Misallocation Requires Measure-Level Comparison:
+RDE should not rely solely on pointwise residuals. Recognition potential and observed recognition can be represented as measures over a structured domain, allowing disequilibrium to be analyzed through local differences, distributional divergence, and potentially optimal transport distance. Pointwise residuals remain useful empirical proxies, but measure-level divergence and transport formulations better capture recognition displacement, diversion, and system-level misallocation.

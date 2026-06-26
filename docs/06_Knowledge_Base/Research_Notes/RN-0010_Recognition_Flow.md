@@ -1,0 +1,2 @@
+Layer 10 Decision — Recognition Flow as Structured Transfer or Diversion:
+Recognition flow should not initially be defined as literal physical movement or a PDE. It is provisionally defined as structured transfer, propagation, capture, or diversion of recognition allocation across objects within a recognition system. Network, diffusion, and dynamic formulations remain candidate extensions, but the baseline theory should first treat flow as a recognition-transfer relation.

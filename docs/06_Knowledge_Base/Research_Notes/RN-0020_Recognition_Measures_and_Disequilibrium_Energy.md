@@ -1,0 +1,2 @@
+Layer 20 Decision — Disequilibrium as a System-Level Energy Functional:
+Local recognition disequilibrium can be lifted to a global system-level quantity by treating recognition as a measure over a structured measurable domain and defining disequilibrium energy as an integral of local distance from equilibrium. Empirical residual energy is an operational proxy, while the deeper theoretical object is the system-level mismatch between recognition potential, allocation, realization, and equilibrium structure.

@@ -1,0 +1,2 @@
+Layer 12 Decision — Minimal RDE Axiom Set:
+The RDE framework is provisionally grounded in four core axioms: recognition is system-conditioned, recognition potential and realized recognition are distinct, recognition is mediated by allocation, and recognition is relational. Additional assumptions concerning disequilibrium meaningfulness, dynamics, and conservation should be treated as secondary principles or testable hypotheses rather than immutable axioms.
