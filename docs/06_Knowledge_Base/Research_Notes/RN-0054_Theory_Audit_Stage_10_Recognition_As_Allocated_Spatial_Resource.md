@@ -1,0 +1,2 @@
+Theory Audit Decision — Recognition Allocation Is Central but Not Sufficient:
+Recognition should be treated as an unevenly allocated spatial quantity, but not as a strictly conserved resource. Spatial recognition systems transform latent recognizability capacity into realized recognition through allocation, transmission, reinforcement, persistence, and decay mechanisms. Allocation is therefore central to the GIS framing of the theory, but it should remain one core mechanism within a broader spatial recognition transformation framework.

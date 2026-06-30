@@ -1,0 +1,2 @@
+Axiomatic Compression Decision — Structured Recognition System:
+The recognition system R should be defined as a structured measurable system (Ω,A,μ,S,Γ,Θ), consisting of a measurable domain, recognition state space, relation/geometry structure, and mechanism family. This compressed definition replaces the earlier descriptive tuple and is sufficient to induce recognition geometry, kernels, allocation operators, update operators, equilibrium functionals, and disequilibrium measures, provided each mechanism in Θ is mathematically defined and scientifically justified.

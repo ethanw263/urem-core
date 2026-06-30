@@ -1,0 +1,2 @@
+Axiomatic Compression Decision — Five Minimal Axioms:
+The compressed RDE theory is provisionally grounded in five minimal axioms: system conditioning, potential-realization distinction, mechanism mediation, relational dependence, and disequilibrium admissibility. These axioms allow all major RDE objects to be derived from the primitive core (R,Φ,R) while preserving the distinction between RDE and direct suitability scoring, residual analysis, and purely local recognition models.

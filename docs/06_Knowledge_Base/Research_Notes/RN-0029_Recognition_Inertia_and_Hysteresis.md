@@ -1,0 +1,2 @@
+Layer 29 Decision — Recognition Inertia and Hysteresis as Memory Effects:
+Recognition inertia is provisionally defined as dependence of future recognition on prior recognition states. Hysteresis occurs when recognition depends on historical path rather than current recognition potential alone. These memory effects can explain persistent under-recognition, over-recognition, lock-in, exclusion, and delayed adjustment. They should be represented through the recognition update operator rather than imposed as static labels.

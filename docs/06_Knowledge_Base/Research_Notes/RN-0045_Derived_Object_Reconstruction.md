@@ -1,0 +1,2 @@
+Axiomatic Compression Decision — Derived Object Reconstruction:
+Allocation, recognition geometry, recognition kernels, equilibrium, disequilibrium, sources, sinks, shadowing, reinforcement, phase states, stability, and functionals can be reconstructed as derived objects from the primitive core (R,Φ,R) and the five compressed axioms, provided R is a sufficiently structured recognition system. The monograph should therefore present RDE as a compressed axiomatic theory rather than a catalog of independent concepts.

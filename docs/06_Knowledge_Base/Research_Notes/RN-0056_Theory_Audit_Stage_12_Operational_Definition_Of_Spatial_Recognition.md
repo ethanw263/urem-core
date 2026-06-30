@@ -1,0 +1,2 @@
+Theory Audit Decision — Spatial Recognition Requires Measurable Realization Traces:
+Realized spatial recognition should be operationally defined as measurable evidence that a place has been noticed, named, visited, represented, institutionally acknowledged, referenced, protected, ranked, or made discoverable within a recognition system. Physical quality, suitability, or latent recognizability alone do not count as realized recognition. Recognition must leave a measurable trace in spatial, institutional, digital, infrastructural, or behavioral data.

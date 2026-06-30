@@ -1,0 +1,2 @@
+Layer 39 Decision — RDE Requires Dimensionless and Normalized Recognition Quantities:
+RDE should distinguish raw recognition measures from normalized and dimensionless recognition quantities. Cross-system comparison requires normalization methods such as ranks, z-scores, quantiles, measure normalization, or potential-relative disequilibrium, but these transformations must preserve theoretical interpretation, especially disequilibrium sign, phase-state structure, and source/sink identity. Normalization should support generality without converting RDE into arbitrary rescaling.

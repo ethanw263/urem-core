@@ -1,0 +1,2 @@
+Layer 30 Decision — Recognition Phase States as Dynamic Regimes:
+Recognition systems may exhibit qualitatively distinct phase states, including latent, emerging, stable, saturated, shadowed, locked-in, and excluded recognition. These states should not be treated as arbitrary labels or simple bins of observed recognition. They are provisional dynamic regimes defined by relationships among recognition potential, allocation, observed recognition, disequilibrium, transfer influence, and recognition update behavior.

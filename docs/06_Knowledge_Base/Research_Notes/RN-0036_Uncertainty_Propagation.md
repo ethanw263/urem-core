@@ -1,0 +1,2 @@
+Layer 36 Decision — Disequilibrium Claims Require Uncertainty Propagation:
+RDE should treat disequilibrium, sources, sinks, phase states, and transport misallocation as uncertainty-bearing claims rather than deterministic labels. Uncertainty in observed recognition, latent potential, allocation, recognition geometry, kernels, model structure, and recognition-system specification should propagate into uncertainty in D. Stable claims should be supported by perturbation analysis, ensemble modeling, posterior inference, or structural robustness tests.

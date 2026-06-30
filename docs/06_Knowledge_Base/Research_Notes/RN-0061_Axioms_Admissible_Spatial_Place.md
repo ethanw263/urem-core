@@ -1,0 +1,2 @@
+Axiomatic Decision — Admissible Spatial Places Require Spatial Grounding and Persistent Identifiability:
+An admissible spatial place in SRS requires only two primitive conditions: spatial grounding and persistent identifiability. GIS representation, attributes, boundaries, scale, and recognition states should be treated as derived or representation-dependent rather than axiomatic. This preserves flexibility across points, polygons, trails, regions, fuzzy places, and hierarchical spatial objects.

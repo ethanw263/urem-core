@@ -1,0 +1,2 @@
+Layer 31 Decision — Recognition State Space as Multidimensional:
+Recognition states should not be represented by observed recognition alone. The provisional recognition state space is multidimensional, with each object represented by recognition potential, allocation, observed recognition, and disequilibrium, with dynamic extensions for change, memory, and kernel influence. Recognition phase states are therefore regions of this state space rather than arbitrary map labels.

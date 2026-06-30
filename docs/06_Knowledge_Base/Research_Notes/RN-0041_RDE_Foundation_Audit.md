@@ -1,0 +1,2 @@
+Layer 41 Decision — RDE Foundation Passes Initial Audit With Provisional High-Risk Objects:
+The RDE foundation is internally coherent enough to begin Monograph v0.1. However, Recognition Potential, Allocation, Recognition Geometry, and Recognition Kernel remain high-risk theoretical objects because they are latent, mechanism-dependent, and vulnerable to collapse into existing concepts if poorly defined. The monograph should preserve these risks explicitly rather than present the framework as finalized.

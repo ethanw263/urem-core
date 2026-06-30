@@ -1,0 +1,2 @@
+Layer 34 Decision — RDE Structures Should Be Tested for Invariance Under Valid Transformations:
+RDE should distinguish arbitrary representation-dependent outputs from theoretically meaningful recognition structures. Important conclusions, such as disequilibrium sign, source/sink structure, phase state, and system-level energy, should be evaluated for invariance or stability under monotone transformations, scale changes, discretization changes, normalization choices, perturbations, and recognition-geometry variations.

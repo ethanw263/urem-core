@@ -1,0 +1,2 @@
+Layer 33 Decision — Recognition Stability as Persistence Under Perturbation and Dynamics:
+Recognition states should be evaluated by their stability under perturbations to state variables, inputs, update dynamics, and recognition-system assumptions. RDE should distinguish classification stability, perturbation stability, dynamic stability, and structural stability. Stable recognition states are more theoretically meaningful than fragile states that disappear under small changes.

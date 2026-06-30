@@ -1,0 +1,2 @@
+Theory Audit Decision — Position the Framework as Complementary Spatial Recognition Theory:
+The theory should be positioned as a complementary framework within GIS/spatial science, not as a replacement for suitability analysis, hotspot analysis, spatial regression, accessibility modeling, spatial interaction, or anomaly detection. Its core claim is that spatial recognizability and realized recognition can become persistently misaligned, and that this misalignment can be studied through recognition systems, allocation, transmission, geometry, persistence, and disequilibrium.

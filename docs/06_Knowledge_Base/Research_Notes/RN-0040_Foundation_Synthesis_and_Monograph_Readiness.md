@@ -1,0 +1,2 @@
+Layer 40 Decision — RDE Is Ready for Foundation Audit Before Monograph v0.1:
+The RDE mathematical foundation is sufficiently developed to begin synthesis, but the next step should be a foundation audit rather than immediate monograph drafting. The audit should test definitions, notation, assumptions, identifiability, novelty, and internal consistency before converting the layer-based research notes into the Living Mathematical Monograph v0.1.

@@ -1,0 +1,2 @@
+Monograph Decision — Place Is the Foundational Spatial Object:
+Spatial Recognition Systems Theory should begin with a Spatial Place Space P, whose elements are places with persistent identity within a recognition system. Places may admit multiple GIS representations, including points, polygons, lines, networks, raster footprints, fuzzy regions, or hierarchical regions. Recognition should attach to places first and to raster cells or coordinates only through representation.

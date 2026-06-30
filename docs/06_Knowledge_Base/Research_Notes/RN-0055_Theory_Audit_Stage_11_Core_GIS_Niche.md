@@ -1,0 +1,2 @@
+Theory Audit Decision — Core GIS Niche as Spatial Recognizability–Recognition Misalignment:
+The framework’s core GIS niche is the study of spatial systems in which latent geographic recognizability and realized recognition are persistently misaligned. It is not a replacement for suitability analysis, hotspot analysis, accessibility modeling, spatial interaction, or prediction. Instead, it is designed to explain how recognition is allocated, transmitted, concentrated, withheld, or distorted across geographic systems.

@@ -1,0 +1,2 @@
+Layer 32 Decision — Recognition Phase Transitions as Movements Through State Space:
+Recognition phase transitions are provisionally defined as movements between regions of recognition state space under the recognition update operator. Transitions such as latent-to-emerging, emerging-to-stable, stable-to-saturated, latent-to-excluded, and emerging-to-locked-in should be explained by changes in allocation, observed recognition, disequilibrium, kernel influence, inertia, reinforcement, and system conditions rather than by arbitrary threshold labels.
